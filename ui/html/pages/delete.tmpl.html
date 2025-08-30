@@ -1,0 +1,6 @@
+{{with .Snippet}}
+<form action="/snippet/delete/{{.ID}}" method="post">
+  <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" />
+  <button type="submit">X</button>
+</form>
+{{end}}
