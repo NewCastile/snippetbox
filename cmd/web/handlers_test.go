@@ -50,7 +50,8 @@ func TestSnippetView(t *testing.T) {
 			urlPath:  "/snippet/view/-1",
 			wantCode: http.StatusNotFound,
 		},
-		{name: "Decimal ID",
+		{
+			name:     "Decimal ID",
 			urlPath:  "/snippet/view/1.23",
 			wantCode: http.StatusNotFound,
 		},
@@ -79,7 +80,7 @@ func TestSnippetView(t *testing.T) {
 
 func TestUserSignup(t *testing.T) {
 	app := newTestApplication(t)
-	ts := newTestServer(t, app.routes_v2())
+	ts := newTestServer(t, app.routes())
 
 	defer ts.Close()
 
@@ -95,6 +96,7 @@ func TestUserSignup(t *testing.T) {
 		validEmail    = "bob@example.com"
 		formTag       = "<form action='/user/signup' method='POST' novalidate>"
 	)
+
 	tests := []struct {
 		name         string
 		userName     string

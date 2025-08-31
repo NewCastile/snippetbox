@@ -82,7 +82,7 @@ func main() {
 	srv := &http.Server{
 		Addr:         *addr,
 		ErrorLog:     errorlog,
-		Handler:      app.routes_v2(),
+		Handler:      app.routes(),
 		TLSConfig:    tlsConfig,
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  5 * time.Second,
